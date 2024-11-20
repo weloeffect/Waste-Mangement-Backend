@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class DriverRequestDTO {
+public class UserRequestDTO {
 
     @NotBlank
     private String name;

@@ -22,6 +22,10 @@ public class Bin {
 
     private LocalDateTime lastUpdated;
 
+
+
+    private String sensorData;
+
     public void setLatitude(@NotNull double latitude) {
     }
 
@@ -44,6 +48,14 @@ public class Bin {
 
     public enum Status {
         FULL, EMPTY
+    }
+
+    public String getSensorData() {
+        return sensorData;
+    }
+
+    public void setSensorData(String sensorData) {
+        this.sensorData = sensorData;
     }
 
 }
