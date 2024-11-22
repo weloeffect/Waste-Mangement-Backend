@@ -1,7 +1,6 @@
 package com.example.garbagecollection.service;
-
 import com.example.garbagecollection.dto.VehicleRequestDto;
-import com.example.garbagecollection.entity.Driver;
+import com.example.garbagecollection.entity.User;
 import com.example.garbagecollection.entity.Vehicle;
 import com.example.garbagecollection.repository.UserRepository;
 import com.example.garbagecollection.repository.VehicleRepository;
@@ -22,13 +21,13 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public VehicleRequestDto createVehicle(VehicleRequestDto vehicleDto) {
-        Driver driver = userRepository.findById(vehicleDto.getDriverId())
+        User user = userRepository.findById(vehicleDto.getDriverId())
                 .orElseThrow(() -> new RuntimeException("Driver not found"));
 
         Vehicle vehicle = new Vehicle();
         vehicle.setVehicleBrand(vehicleDto.getVehicleBrand());
         vehicle.setPlateNumber(vehicleDto.getPlateNumber());
-        vehicle.setDriver(driver);
+        vehicle.setDriver(user);
 
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
 
@@ -55,12 +54,12 @@ public class VehicleServiceImpl implements VehicleService {
         Vehicle vehicle = vehicleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Vehicle not found"));
 
-        Driver driver = userRepository.findById(vehicleDto.getDriverId())
+        User user = userRepository.findById(vehicleDto.getDriverId())
                 .orElseThrow(() -> new RuntimeException("Driver not found"));
 
         vehicle.setVehicleBrand(vehicleDto.getVehicleBrand());
         vehicle.setPlateNumber(vehicleDto.getPlateNumber());
-        vehicle.setDriver(driver);
+        vehicle.setDriver(user);
 
         Vehicle updatedVehicle = vehicleRepository.save(vehicle);
 

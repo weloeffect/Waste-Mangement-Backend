@@ -1,6 +1,6 @@
 package com.example.garbagecollection.entity;
 
-import com.example.garbagecollection.entity.Driver;
+import com.example.garbagecollection.entity.User;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,8 +18,8 @@ public class Vehicle {
     private String plateNumber;
 
     @ManyToOne
-    @JoinColumn(name = "driver_id", nullable = false)
-    private Driver driver;
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
     // Getters and Setters
     public Long getVehicleId() {
@@ -46,11 +46,11 @@ public class Vehicle {
         this.plateNumber = plateNumber;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public User getDriver() {
+        return user;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setDriver(User user) {
+        this.user = user;
     }
 }

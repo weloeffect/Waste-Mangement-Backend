@@ -7,11 +7,19 @@ import lombok.Data;
 public class UserRequestDTO {
 
     @NotBlank
-    private String name;
+    private String firstName;
 
     @NotBlank
-    private String contactInfo;
+    private String lastName;
 
     @NotBlank
-    private String assignedVehicle;
+    private String contactNumber;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String password;
+
+    private String assignedVehicle;  // Optional field for vehicle assignment
 }

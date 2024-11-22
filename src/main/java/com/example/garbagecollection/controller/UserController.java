@@ -1,7 +1,7 @@
 package com.example.garbagecollection.controller;
 
 import com.example.garbagecollection.dto.UserRequestDTO;
-import com.example.garbagecollection.entity.Driver;
+import com.example.garbagecollection.entity.User;
 import com.example.garbagecollection.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +17,17 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<Driver>> getAllDrivers() {
+    public ResponseEntity<List<User>> getAllDrivers() {
         return ResponseEntity.ok(userService.getAllDrivers());
     }
 
     @PostMapping
-    public ResponseEntity<Driver> createDriver(@RequestBody UserRequestDTO userRequestDTO) {
+    public ResponseEntity<User> createDriver(@RequestBody UserRequestDTO userRequestDTO) {
         return ResponseEntity.ok(userService.createDriver(userRequestDTO));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Driver> getDriverById(@PathVariable Long id) {
+    public ResponseEntity<User> getDriverById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getDriverById(id));
     }
 }

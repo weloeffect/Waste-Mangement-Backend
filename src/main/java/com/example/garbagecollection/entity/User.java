@@ -1,45 +1,36 @@
 package com.example.garbagecollection.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "drivers")
-public class Driver {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "lastName", nullable = false)
     private String lastName;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole role;
 
-    @Column(precision = 10, scale = 8)
-    private BigDecimal latitude;
-
-    @Column(precision = 11, scale = 8)
-    private BigDecimal longitude;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicle_id", unique = true)
-    private Vehicle vehicle;
-
-    @Column(name = "contact_number", nullable = false)
+    @Column(name = "contactNumber", nullable = false)
     private String contactNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserStatus status;
 
-    @Column(name = "date_of_birth")
+    @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
 
     @Column(nullable = false, unique = true)
@@ -47,6 +38,10 @@ public class Driver {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vehicleId", unique = true)
+    private Vehicle vehicle;
 
     // Enum for Role
     public enum UserRole {
@@ -60,11 +55,11 @@ public class Driver {
 
     // Getters and Setters
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getFirstName() {
@@ -89,30 +84,6 @@ public class Driver {
 
     public void setRole(UserRole role) {
         this.role = role;
-    }
-
-    public BigDecimal getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
-    }
-
-    public BigDecimal getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(BigDecimal longitude) {
-        this.longitude = longitude;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
     }
 
     public String getContactNumber() {
@@ -153,5 +124,13 @@ public class Driver {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 }
