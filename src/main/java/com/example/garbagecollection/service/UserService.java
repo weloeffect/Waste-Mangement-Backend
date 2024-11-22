@@ -1,12 +1,11 @@
 package com.example.garbagecollection.service;
 
 import com.example.garbagecollection.dto.UserRequestDTO;
-import com.example.garbagecollection.entity.Driver;
-
+import com.example.garbagecollection.entity.User;
 import java.util.List;
 
 public interface UserService {
-    List<Driver> getAllDrivers();
-    Driver createDriver(UserRequestDTO userRequestDTO);
-    Driver getDriverById(Long id);
+    List<User> getAllDrivers();
+    User createDriver(UserRequestDTO userRequestDTO);
+    User getDriverById(Long userId);
 }
