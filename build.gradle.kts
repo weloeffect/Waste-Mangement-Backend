@@ -23,6 +23,8 @@ dependencies {
 
 	// Spring Data JPA Starter
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	// H2 Database for Runtime
+	runtimeOnly("com.h2database:h2")
 
 	// Jakarta Validation API
 	implementation("jakarta.validation:jakarta.validation-api:3.0.2")
@@ -33,11 +35,15 @@ dependencies {
 	compileOnly("org.projectlombok:lombok:1.18.30")
 	annotationProcessor("org.projectlombok:lombok:1.18.30")
 
-	// H2 Database for Runtime
-	runtimeOnly("com.h2database:h2")
-
 	// Development Tools
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+    // encryption package
+	implementation("org.springframework.boot:spring-boot-starter-security")
+
+	//swagger
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
 	// Testing Dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
