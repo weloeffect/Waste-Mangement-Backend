@@ -3,6 +3,7 @@ package com.example.garbagecollection.controller;
 import com.example.garbagecollection.dto.UserRequestDTO;
 import com.example.garbagecollection.entity.User;
 import com.example.garbagecollection.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/drivers")
+@SecurityRequirement(name = "basicAuth")
 public class UserController {
 
     @Autowired

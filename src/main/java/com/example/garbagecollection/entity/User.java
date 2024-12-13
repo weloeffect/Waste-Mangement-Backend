@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "drivers")
+@Table(name = "users")
 public class User {
 
     @Id
