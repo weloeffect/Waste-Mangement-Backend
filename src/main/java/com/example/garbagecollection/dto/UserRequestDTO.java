@@ -1,57 +1,84 @@
 package com.example.garbagecollection.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import com.example.garbagecollection.entity.User;
 
 @Data
 public class UserRequestDTO {
-    public @NotBlank String getFirstName() {
+
+    @NotBlank(message = "First name is required")
+    @Size(max = 50, message = "First name must not exceed 50 characters")
+    private String firstName;
+
+    @NotBlank(message = "Last name is required")
+    @Size(max = 50, message = "Last name must not exceed 50 characters")
+    private String lastName;
+
+    @NotBlank(message = "Contact number is required")
+    @Size(max = 15, message = "Contact number must not exceed 15 characters")
+    private String contactNumber;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+    private String password;
+
+    private String userRole; // Optional field for user role
+
+//     Constructor to map User entity to UserRequestDTO
+//    public UserRequestDTO(User user) {
+//        this.firstName = user.getFirstName();
+//        this.lastName = user.getLastName();
+//        this.contactNumber = user.getContactNumber();
+//        this.email = user.getEmail();
+//    }
+
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(@NotBlank String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public @NotBlank String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(@NotBlank String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public @NotBlank String getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(@NotBlank String contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public @NotBlank String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(@NotBlank String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotBlank String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NotBlank String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getAssignedVehicle() {
-        return assignedVehicle;
-    }
-
-    public void setAssignedVehicle(String assignedVehicle) {
-        this.assignedVehicle = assignedVehicle;
-    }
     public String getUserRole() {
         return userRole;
     }
@@ -60,23 +87,5 @@ public class UserRequestDTO {
         this.userRole = userRole;
     }
 
-    @NotBlank
-    private String firstName;
-
-    @NotBlank
-    private String lastName;
-
-    @NotBlank
-    private String contactNumber;
-
-    @NotBlank
-    private String email;
-
-    @NotBlank
-    private String password;
-
-    private String assignedVehicle;  // Optional field for vehicle assignment
-
-    private String userRole;
 
 }

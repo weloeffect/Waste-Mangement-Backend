@@ -1,9 +1,8 @@
 package com.example.garbagecollection.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDate;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "users")
@@ -39,9 +38,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicleId", unique = true)
-    private Vehicle vehicle;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "vehicleId", unique = true)
+//    private Vehicle vehicle;
 
     // Enum for Role
     public enum UserRole {
@@ -126,11 +125,12 @@ public class User {
         this.password = password;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public UserRole getUserRole() {
+        return role;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setUserRoles(UserStatus status) {
+        this.status = status;
     }
+
 }
