@@ -3,6 +3,7 @@ package com.example.garbagecollection.controller;
 import com.example.garbagecollection.entity.Bin;
 import com.example.garbagecollection.service.BinService;
 import com.example.garbagecollection.util.GeoUtils;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/routes")
+@SecurityRequirement(name = "basicAuth")
 public class RoutingController {
 
     @Autowired

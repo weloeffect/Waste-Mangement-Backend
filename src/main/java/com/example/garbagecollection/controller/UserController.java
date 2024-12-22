@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/drivers")
-
+@SecurityRequirement(name = "basicAuth")
 public class UserController {
 
     @Autowired
@@ -55,7 +55,7 @@ public class UserController {
 
 @RestController
 @RequestMapping("/api/customers")
-
+@SecurityRequirement(name = "basicAuth")
 class CustomerController {
 
     @Autowired
@@ -100,7 +100,7 @@ class CustomerController {
 
 @RestController
 @RequestMapping("/api/admins")
-
+@SecurityRequirement(name = "basicAuth")
 class AdminController {
 
     @Autowired
