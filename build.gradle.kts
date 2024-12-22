@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.3.5"
 	id("io.spring.dependency-management") version "1.1.6"
+	kotlin("jvm")
 }
 
 group = "com.example"
@@ -9,7 +10,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(22)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
@@ -38,16 +39,27 @@ dependencies {
 	// Development Tools
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    // encryption package
+	// security
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+	implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
+	implementation("io.jsonwebtoken:jjwt-jackson:0.11.5") // for JSON processing
+	implementation("javax.servlet:javax.servlet-api:4.0.1")
+	implementation("javax.servlet:javax.servlet-api:4.0.1")
+
+
+
 
 	//swagger
-	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+//	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+//	implementation("org.springdoc:springdoc-openapi-ui:1.7.0") // Use the latest version
+//	implementation("org.springdoc:springdoc-openapi-kotlin:1.7.0")
 
 	// Testing Dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(kotlin("stdlib-jdk8"))
 }
 
 
