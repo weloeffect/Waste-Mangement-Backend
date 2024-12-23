@@ -20,13 +20,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-//@EnableWebSecurity
-//@SecurityScheme(
-//        type = SecuritySchemeType.HTTP,
-//        name = "basicAuth",
-//        scheme = "basic",
-//        in = SecuritySchemeIn.HEADER
-//)
 public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
@@ -52,15 +45,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user = User.builder()
-//                .username("admin")
-//                .password(passwordEncoder().encode("admin123"))
-//                .roles("USER")
-//                .build();
-//        return new InMemoryUserDetailsManager(user);
-//    }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
