@@ -133,6 +133,6 @@ public class UserServiceImpl implements UserService {
         user.setContactNumber(dto.getContactNumber());
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
-        // Add more fields as necessary
+
     }
 }
