@@ -38,6 +38,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String token;
+
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "vehicleId", unique = true)
 //    private Vehicle vehicle;
@@ -125,12 +128,13 @@ public class User {
         this.password = password;
     }
 
-    public UserRole getUserRole() {
-        return role;
+    public String getToken() {
+        return token;
     }
 
-    public void setUserRoles(UserStatus status) {
-        this.status = status;
+    public void setToken(String token) {
+        this.token = token;
     }
+
 
 }
